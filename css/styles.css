@@ -1,0 +1,22 @@
+p {
+    padding: 50px;
+    font-size: 32px;
+    font-weight: bold;
+    text-align: center;
+}
+
+#boton-rojo {
+    background-color: red;
+}
+
+#boton-azul {
+    background: blue;
+}
+
+#boton-amarillo {
+    background: yellow;
+}
+
+#boton-verde {
+    background: green;
+}
