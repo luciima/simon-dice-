@@ -1,0 +1,34 @@
+.boton-texto {
+    padding: 50px;
+    font-size: 32px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.apagado {
+    opacity: 40%;
+}
+
+#boton-rojo {
+    background-color: red;
+    color: red;
+}
+
+#boton-azul {
+    background: blue;
+    color: blue;
+}
+
+#boton-amarillo {
+    background: yellow;
+    color: yellow;
+}
+
+#boton-verde {
+    background: green;
+    color: green;
+}
+
+#empezar-juego {
+    height: 80%
+}
