@@ -33,3 +33,7 @@ function deshabilitarBotones() {
         boton.onclick = function () {};
     }
 }
+
+function mostrarNumeroDeRonda(numeroRonda) {
+    barraDeEstado.textContent = `Ronda ${numeroRonda}!`;
+}

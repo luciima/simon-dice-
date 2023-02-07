@@ -4,6 +4,8 @@ const $botonAmarillo = document.querySelector("#boton-amarillo");
 const $botonVerde = document.querySelector("#boton-verde");
 const botones = [$botonRojo, $botonAzul, $botonAmarillo, $botonVerde];
 const $botonEmpezar = document.querySelector("#empezar-juego");
+const barraDeEstado = document.querySelector("#barra-estado");
+const barraDeTurno = document.querySelector("#turno");
 let secuenciaActual = [];
 let secuenciaUsuario = [];
 let rondaActual = 0;
@@ -21,8 +23,13 @@ function nuevaRonda() {
 
 $botonEmpezar.onclick = function () {
     secuenciaActual = [];
+    secuenciaUsuario = [];
+    barraDeTurno.classList.remove("d-none");
+    mostrarTurnoUsuario(false);
     $botonEmpezar.disabled = true;
-    nuevaRonda();
+    rondaActual = 1;
+    mostrarNumeroDeRonda(rondaActual);
+    iniciarNuevaRonda();
 };
 
 function compararSecuencias(boton) {
@@ -39,14 +46,30 @@ function manejarRonda(usuarioEnJuego) {
         deshabilitarBotones();
         secuenciaUsuario = [];
         setTimeout(nuevaRonda, 1500);
+        rondaActual += 1;
+        setTimeout(mostrarNumeroDeRonda, tiempoHastaNuevaRonda_ms / 2, rondaActual);
+        setTimeout(mostrarTurnoUsuario, tiempoHastaNuevaRonda_ms / 2, false);
     } else if (usuarioEnJuego) {
         return true;
     } else {
-        deshabilitarBotones();
         mostrarPartidaPerdida();
     }
 }
 
 function mostrarPartidaPerdida() {
-    alert("Perdiste!");
+    deshabilitarBotones();
+    barraDeEstado.textContent = `Perdiste! Tocá "Jugar" para empezar de nuevo!`;
+    $botonEmpezar.removeAttribute("disabled");
+}
+
+function mostrarTurnoUsuario(usuario) {
+    if (usuario) {
+        barraDeTurno.classList.add("alert-success");
+        barraDeTurno.classList.remove("alert-warning");
+        barraDeTurno.textContent = "Tu turno!";
+    } else {
+        barraDeTurno.classList.remove("alert-success");
+        barraDeTurno.classList.add("alert-warning");
+        barraDeTurno.textContent = "Mi turno!";
+    }
 }
