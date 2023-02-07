@@ -29,7 +29,7 @@ function habilitarBotones() {
 }
 
 function deshabilitarBotones() {
-    for (let boton in botones) {
+    for (let boton of botones) {
         boton.onclick = function () {};
     }
 }
