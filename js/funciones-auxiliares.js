@@ -1,5 +1,5 @@
 function elegirBotonRandom() {
-    const numeroRandom = Math.floor(Math.random() * 4);
+    const numeroRandom = Math.floor(Math.random() * botones.length);
     return botones[numeroRandom];
 }
 
@@ -15,7 +15,7 @@ function presionarBoton(boton) {
     iluminarBoton(boton);
     setTimeout(function () {
         apagarBoton(boton);
-    }, 700);
+    }, tiempoBotonEncendido_ms);
 }
 
 function habilitarBotones() {
