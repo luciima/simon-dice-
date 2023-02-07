@@ -27,7 +27,6 @@ function iniciarNuevaRonda() {
 $botonEmpezar.onclick = function () {
     secuenciaActual = [];
     secuenciaUsuario = [];
-    barraDeTurno.classList.remove("d-none");
     mostrarTurnoUsuario(false);
     $botonEmpezar.disabled = true;
     rondaActual = 1;
